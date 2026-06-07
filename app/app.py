@@ -14,7 +14,7 @@ orders = []
 @app.route("/")
 def home():
     logging.info("Home endpoint called")
-    return jsonify({"message": "Retail Application Running"})
+    return jsonify({"message": "Retail Application Running on Localhost:5000"})
 
 
 @app.route("/health")
