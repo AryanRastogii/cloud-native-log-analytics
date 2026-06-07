@@ -5,12 +5,19 @@ on:
     branches:
       - main
 
+
 jobs:
 
   deploy:
 
-    runs-on: ubuntu-latest
+    permissions:
 
+      id-token: write
+
+      contents: read
+
+    runs-on: ubuntu-latest
+    
     steps:
 
       - name: Checkout
@@ -31,8 +38,8 @@ jobs:
 
       - name: Push Image
         run: |
-          docker tag app:latest $ECR_URI:latest
-          docker push $ECR_URI:latest
+          docker tag app:latest 344211401727.dkr.ecr.us-east-1.amazonaws.com/log-analytics-repo:latest
+          docker push 344211401727.dkr.ecr.us-east-1.amazonaws.com/log-analytics-repo:latest
 
       - name: Force Deployment
         run: |
